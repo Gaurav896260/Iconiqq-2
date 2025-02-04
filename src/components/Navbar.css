@@ -1,44 +1,53 @@
 .schedule-button {
-    position: relative;
-    background: rgb(5,5,0);
-background: linear-gradient(90deg, rgba(5,5,0,1) 20%, rgba(69,65,19,1) 53%, rgba(5,5,0,1) 100%);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 50px;
-    font-style: italic;
-    
-    line-height: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    overflow: hidden;
-  }
-  
-  .schedule-button svg {
-    width: 16px;
-    height: 16px;
-    fill: white;
-    margin-left: 5px;
-    transform: translateX(-5px);
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    opacity: 0;
-  }
-  
-  .schedule-button:hover {
-    transform: translateX(5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .schedule-button:hover svg {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  position: relative;
+  background: rgb(5, 5, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(5, 5, 0, 1) 20%,
+    rgb(122, 114, 19) 53%,
+    rgba(5, 5, 0, 1) 100%
+  );
+  color: white;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-style: italic;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
 
-  .hero-bg {
-    background: rgb(5,5,0);
-background: linear-gradient(90deg, rgba(5,5,0,1) 25%, rgba(69,22,19,1) 50%, rgba(69,22,19,1) 75%, rgba(5,5,0,1) 100%);
-  }
+.schedule-button svg {
+  width: 16px;
+  height: 16px;
+  fill: white;
+  margin-left: 5px;
+  transform: translateX(-5px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.schedule-button:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.schedule-button:hover svg {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hero-bg {
+  background: rgb(5, 5, 0);
+  background: linear-gradient(
+    90deg,
+    rgba(5, 5, 0, 1) 25%,
+    rgba(69, 22, 19, 1) 50%,
+    rgba(69, 22, 19, 1) 75%,
+    rgba(5, 5, 0, 1) 100%
+  );
+}

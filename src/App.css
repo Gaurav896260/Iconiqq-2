@@ -1,7 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
-     font-family: 'Vilaka';
-     src: url('./../public/fonts/vilaka-modern-serif-font-demo/Vilaka\ Modern\ Serif.ttf') format('truetype');
-     font-weight: normal;
-     font-style: normal;
-   }
-   
+  font-family: "Vilaka";
+  src: url("/fonts/Vilaka-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

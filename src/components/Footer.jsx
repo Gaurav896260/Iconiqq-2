@@ -31,7 +31,7 @@ const ContactFooter = () => {
   }, []);
 
   return (
-    <footer className="w-full px-4 py-8 md:py-12">
+    <footer className="w-full px-4 py-8 md:py-12 mt-auto">
       <div className="max-w-7xl mx-auto">
         <div className="w-full bg-white rounded-[20px] p-6 md:p-12">
           <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-12">

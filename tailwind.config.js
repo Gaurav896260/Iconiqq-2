@@ -7,8 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        vietnam: ['"Be Vietnam"', 'sans-serif'],
         vilaka: ['Vilaka', 'serif'],
+        vietnam: ['Be Vietnam', 'sans-serif'],
       },
     },
   },

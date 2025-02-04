@@ -1,10 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam:wght@400&display=swap');
+
+body {
+  font-family: 'Be Vietnam', sans-serif;
+  font-weight: 400;
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @font-face {
-    font-family: 'Vilaka Font Demo Version';
-    src: url('/src/assets/fonts/VilakaFontDemoVersion.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Vilaka";
+  src: url("/fonts/Vilaka\ Modern\ Serif\ Font.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* @font-face {
+  font-family: "Be Vietnam";
+  src: url("/fonts/be-vietnam/BeVietnam-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+} */
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
   }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

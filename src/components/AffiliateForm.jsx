@@ -1,21 +1,21 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
 import "./Navbar.css";
 
 const AffiliateForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    source: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    source: "",
+    message: "",
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -33,7 +33,9 @@ const AffiliateForm = () => {
     \nMessage: ${message || "No additional message provided."}`;
 
     // WhatsApp URL
-    const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappURL = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
 
     // Redirect to WhatsApp
     window.open(whatsappURL, "_blank");
@@ -116,7 +118,7 @@ const AffiliateForm = () => {
         type="submit"
         className="md:flex w-1/2 schedule-button font-normal"
       >
-        Book a Demo
+        Submit Form
         <BsArrowUpRight />
       </button>
     </form>

@@ -1,69 +1,118 @@
-import React, { useState, useEffect, useRef } from 'react';
-import image1 from '../assets/Hero/bc.jpg';
-import image2 from '../assets/Hero/frheta.jpg';
-import image3 from '../assets/Hero/bg.jpg';
-import image4 from '../assets/Hero/qh.jpg';
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import image1 from "../assets/Hero/bc.jpg";
+import image2 from "../assets/Hero/frheta.jpg";
+import image3 from "../assets/Hero/bg.jpg";
+import image4 from "../assets/Hero/qh.jpg";
+import image5 from "../assets/Projects/Black Crush/BlackCrush1.jpg";
+import image6 from "../assets/Projects/Frehta/Frheta1.png";
+import image7 from "../assets/Projects/Kashmir Chur Chur Naan/KashmirChurChurNaan1.jpg";
+import image8 from "../assets/Projects/Kyoto Kitchen/KyotoKitchen1.jpg";
+import image9 from "../assets/Projects/La Costa/LaCosta1.jpg";
+import image10 from "../assets/Projects/Qdore Home/QH1.jpg";
+import image11 from "../assets/Projects/Black Crush/BlackCrush2.jpg";
+import image12 from "../assets/Projects/Kashmir Chur Chur Naan/KashmirChurChurNaanLogo.png";
+import image13 from "../assets/Projects/Qdore Home/QH2.jpg";
+import image14 from "../assets/Projects/La Costa/LaCosta2.jpg";
+import image15 from "../assets/Projects/Frehta/Frheta3.jpg";
+import image16 from "../assets/Projects/Kyoto Kitchen/KyotoKitchenLogo.jpg";
+import image17 from "../assets/Projects/Kashmir Chur Chur Naan/KashmirChurChurNaan2.jpg";
+import image18 from "../assets/Projects/Qdore Home/QHLogo.jpg";
+import image19 from "../assets/Projects/Kyoto Kitchen/KyotoKitchen2.png";
+import image20 from "../assets/Projects/Kashmir Chur Chur Naan/KashmirChurChurNaan4.jpg";
+import image21 from "../assets/Projects/Frehta/Frheta2.png";
+import image22 from "../assets/Projects/Black Crush/BlackCrush3.jpg";
+import image23 from "../assets/Projects/Kashmir Chur Chur Naan/KashmirChurChurNaan3.jpg";
+import image24 from "../assets/Projects/Black Crush/BlackCrushLogo.jpg";
+import image25 from "../assets/Projects/Frehta/FrhetaLogo.png";
+import image26 from "../assets/Projects/La Costa/LaCostaLogo.jpg";
 
 const HeroSection = () => {
   const [hover, setHover] = useState(false);
-  const [currentText, setCurrentText] = useState('');
+  const [currentText, setCurrentText] = useState("");
   const [showAdditionalImages, setShowAdditionalImages] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const textIndexRef = useRef(0);
   const timeoutRef = useRef(null);
   const imageIntervalRef = useRef(null);
 
-  const additionalImages = [image1, image2, image3, image4];
-
-  const textArray = [
-    { text: 'Stop!', style: 'font-vietnam font-[5] italic' },
-    { text: 'Are', style: 'font-vietnam italic font-[100]' },
-    { text: 'you', style: 'font-vietnam italic font-[100]' },
-    { text: 'done', style: 'font-vietnam italic font-[200]' },
-    { text: 'with', style: 'font-vietnam italic font-[200]' },
-    { text: 'your', style: 'font-vietnam italic font-[200]' },
-    { text: 'Branding?', style: 'font-vilaka text-[#fff400]' },
+  const additionalImages = [
+    image5,
+    image6,
+    image7,
+    image8,
+    image9,
+    image10,
+    image11,
+    image12,
+    image13,
+    image14,
+    image15,
+    image16,
+    image17,
+    image18,
+    image19,
+    image20,
+    image21,
+    image22,
+    image23,
+    image24,
+    image25,
+    image26,
   ];
 
-  // Existing timeout and interval management functions
-  const clearTypewriterTimeout = () => {
+  const textArray = [
+    { text: "Stop!", style: "font-vietnam font-[5] italic" },
+    { text: "Are", style: "font-vietnam italic font-[100]" },
+    { text: "you", style: "font-vietnam italic font-[100]" },
+    { text: "done", style: "font-vietnam italic font-[200]" },
+    { text: "with", style: "font-vietnam italic font-[200]" },
+    { text: "your", style: "font-vietnam italic font-[200]" },
+    {
+      text: "Branding?",
+      style: "font-vilaka text-[#fff400] text-6xl font-bold",
+    },
+  ];
+
+  const clearTypewriterTimeout = useCallback(() => {
     if (timeoutRef.current) {
       clearTimeout(timeoutRef.current);
       timeoutRef.current = null;
     }
-  };
+  }, []);
 
-  const clearImageInterval = () => {
+  const clearImageInterval = useCallback(() => {
     if (imageIntervalRef.current) {
       clearInterval(imageIntervalRef.current);
       imageIntervalRef.current = null;
     }
-  };
+  }, []);
 
-  const startImageRotation = () => {
+  const startImageRotation = useCallback(() => {
     setShowAdditionalImages(true);
     imageIntervalRef.current = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % additionalImages.length);
-    }, 1000);
-  };
+    }, 400); // Slightly faster image rotation
+  }, []);
 
-  const typeWriterEffect = () => {
+  const typeWriterEffect = useCallback(() => {
     clearTypewriterTimeout();
 
     if (!hover || textIndexRef.current >= textArray.length) {
       textIndexRef.current = 0;
-      setCurrentText('');
+      setCurrentText("");
       return;
     }
 
     const currentItem = textArray[textIndexRef.current];
     if (currentItem) {
       timeoutRef.current = setTimeout(() => {
-        setCurrentText(prev => (
+        setCurrentText((prev) => (
           <>
             {prev}
-            {prev ? ' ' : ''}
-            <span className={currentItem.style}>
+            {prev ? " " : ""}
+            <span
+              className={`${currentItem.style} transition-all duration-300 ease-in-out`}
+            >
               {currentItem.text}
             </span>
           </>
@@ -78,25 +127,25 @@ const HeroSection = () => {
               timeoutRef.current = setTimeout(() => {
                 if (hover) {
                   textIndexRef.current = 0;
-                  setCurrentText('');
+                  setCurrentText("");
                   setShowAdditionalImages(false);
                   clearImageInterval();
                   typeWriterEffect();
                 }
-              }, 4000);
+              }, 7000); // Slightly reduced timeout
             }
-          }, 500);
+          }, 200);
         } else {
           typeWriterEffect();
         }
-      }, 300);
+      }, 200); // Slightly faster text typing
     }
-  };
+  }, [hover, clearTypewriterTimeout, startImageRotation, clearImageInterval]);
 
   useEffect(() => {
     if (hover) {
       textIndexRef.current = 0;
-      setCurrentText('');
+      setCurrentText("");
       setShowAdditionalImages(false);
       setCurrentImageIndex(0);
       typeWriterEffect();
@@ -106,7 +155,7 @@ const HeroSection = () => {
       clearTypewriterTimeout();
       clearImageInterval();
     };
-  }, [hover]);
+  }, [hover, typeWriterEffect, clearTypewriterTimeout, clearImageInterval]);
 
   const handleMouseEnter = () => setHover(true);
   const handleMouseLeave = () => {
@@ -114,7 +163,7 @@ const HeroSection = () => {
     clearTypewriterTimeout();
     clearImageInterval();
     textIndexRef.current = 0;
-    setCurrentText('');
+    setCurrentText("");
     setShowAdditionalImages(false);
     setCurrentImageIndex(0);
   };
@@ -128,10 +177,12 @@ const HeroSection = () => {
       >
         <div className="relative z-20 flex flex-col items-center justify-center">
           <div className="hero-bg rounded-[20px] overflow-hidden w-full p-6 md:p-12 flex flex-col md:flex-row justify-between">
-            {hover && (
-              <div className="absolute inset-0 rounded-[20px] bg-black bg-opacity-80 z-10"></div>
-            )}
-            
+            <div
+              className={`absolute inset-0 rounded-[20px] bg-black transition-opacity duration-500 ${
+                hover ? "opacity-65" : "opacity-0"
+              } z-10`}
+            ></div>
+
             {/* Left Section */}
             <div className="w-full md:w-1/2 text-left mb-8 md:mb-0">
               <h1 className="text-white text-[32px] italic font-thin font-vietnam leading-[72px]">
@@ -152,11 +203,11 @@ const HeroSection = () => {
                   <img
                     src={image1}
                     alt="Brand showcase 1"
-                    className="absolute h-[230px] w-[250px] object-cover rounded-lg"
+                    className="absolute h-[280px] w-[195px] object-cover rounded-xl"
                     style={{
-                      clipPath: 'polygon(0 15%, 100% 0, 100% 100%, 0 87%)',
-                      left: '100px',
-                      top: '0px'
+                      clipPath: "polygon(0% 18%, 100% 3%, 100% 85%, 0 72%)",
+                      left: "150px",
+                      top: "0px",
                     }}
                   />
                 </div>
@@ -166,11 +217,11 @@ const HeroSection = () => {
                   <img
                     src={image2}
                     alt="Brand showcase 2"
-                    className="absolute h-[320px] w-[200px] object-cover rounded-lg"
+                    className="absolute h-[360px] w-[300px] object-cover rounded-lg"
                     style={{
-                      clipPath: 'polygon(0 8%, 100% 0, 100% 100%, 0 89%)',
-                      right: '-50px',
-                      top: '-40px'
+                      clipPath: "polygon(0 13%, 100% 0, 100% 95%, 0% 82%)",
+                      right: "-70px",
+                      top: "-45px",
                     }}
                   />
                 </div>
@@ -180,25 +231,25 @@ const HeroSection = () => {
                   <img
                     src={image3}
                     alt="Brand showcase 3"
-                    className="absolute h-[200px] w-[250px] object-cover rounded-lg"
+                    className="absolute h-[250px] w-[250px] object-cover rounded-lg"
                     style={{
-                      clipPath: 'polygon(0 0, 100% 20%, 100% 100%, 0 100%)',
-                      left: '100px',
-                      bottom: '-30px'
+                      clipPath: "polygon(0 0, 100% 18%, 100% 100%, 0 100%)",
+                      left: "80px",
+                      bottom: "-70px",
                     }}
                   />
                 </div>
 
                 {/* Image 4 - Bottom Right */}
-                <div className="relative">
+                <div className="relative h-[250px] w-[310px]">
                   <img
                     src={image4}
                     alt="Brand showcase 4"
-                    className="absolute h-[160px] w-[240px] object-cover rounded-lg"
+                    className="absolute h-[250px] w-[300px] object-cover rounded-lg"
                     style={{
-                      clipPath: 'polygon(0 0, 100% 20%, 100% 100%, 0 100%)',
-                      right: '-60px',
-                      bottom: '-30px'
+                      clipPath: "polygon(0 0, 100% 20%, 100% 100%, 0 100%)",
+                      right: "-35px",
+                      bottom: "-185px",
                     }}
                   />
                 </div>
@@ -207,26 +258,44 @@ const HeroSection = () => {
           </div>
 
           {/* Text Animation */}
-          {hover && (
-            <div
-              className={`absolute inset-0 flex flex-col items-center justify-center text-center text-white z-30 transition-all duration-500 ${
-                showAdditionalImages ? '-translate-y-8' : ''
-              }`}
-            >
-              <span className="text-[40px] md:text-[50px] font-[300]">{currentText}</span>
-
-              {/* Additional Images */}
-              {showAdditionalImages && (
-                <div className="w-[302px] h-52 bg-white rounded-tl-[50px] rounded-br-[50px] justify-start items-center inline-flex overflow-hidden">
-                  <img
-                    src={additionalImages[currentImageIndex]}
-                    alt={`Additional showcase ${currentImageIndex + 1}`}
-                    className="w-[427.81px] h-[285.24px]"
-                  />
+          <div className="w-full justify-center items-center">
+            {hover && (
+              <div
+                className={`absolute inset-0 flex flex-col items-center justify-center text-left text-white z-30 ${
+                  showAdditionalImages
+                    ? "transition-all duration-700 ease-out -translate-y-8 mt-5"
+                    : ""
+                }`}
+              >
+                {/* Background container for text animation */}
+                <div
+                  className={`
+                    relative w-full ml-80 
+                    ${
+                      showAdditionalImages
+                        ? "transition-all duration-900 ease-in-out transform translate-y-[-20px]"
+                        : "translate-y-0"
+                    }
+                  `}
+                >
+                  <span className="text-[40px] md:text-[50px] font-[300] transition-all duration-700 ease-out transform animate-slideInFromLeft">
+                    {currentText}
+                  </span>
                 </div>
-              )}
-            </div>
-          )}
+
+                {/* Additional Images */}
+                {showAdditionalImages && (
+                  <div className="w-[302px] h-52 bg-white rounded-tl-[50px] rounded-br-[50px] justify-center items-center inline-flex overflow-hidden object-contain mt-10 transition-all duration-900 ease-in-out transform animate-fadeIn">
+                    <img
+                      src={additionalImages[currentImageIndex]}
+                      alt={`Additional showcase ${currentImageIndex + 1}`}
+                      className="w-[427.81px] h-[285.24px]"
+                    />
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
