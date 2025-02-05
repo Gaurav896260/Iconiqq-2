@@ -54,7 +54,7 @@ const ServiceItem = ({ title, description, imageUrl, items }) => {
         >
           <h3
             className={`
-            text-black text-2xl md:text-4xl 
+            text-black py-4 text-2xl md:text-4xl 
             font-light font-vietnam italic mb-2 
             transition-all duration-600 ease-out
             truncate
@@ -122,8 +122,8 @@ const ServicesSection = () => {
 
   return (
     <section className="w-full px-4 md:py-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col gap-2 md:gap-6">
+      <div className="max-w-7xl mx-auto pt-12 pb-16">
+        <div className="flex flex-col md:gap-6">
           {services.map((service, index) => (
             <ServiceItem key={index} {...service} items={services} />
           ))}

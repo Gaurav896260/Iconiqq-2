@@ -55,11 +55,11 @@ const BrandTransformation = () => {
   }, []);
 
   return (
-    <section className="w-full px-4">
+    <section className="min-h-screen w-full px-4">
       <div className="max-w-7xl mx-auto">
         {/* Section 1 */}
         {/* Transforming Brands From Ordinary To Iconiqq */}
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center pb-12">
           {/* First Line */}
           <div className="flex items-center gap-2 flex-wrap justify-center">
             <h2 className="text-black text-3xl md:text-5xl font-light font-vietnam italic leading-tight md:leading-[72px] font-weight-300">
@@ -132,7 +132,7 @@ const BrandTransformation = () => {
 
         {/* Section 2 */}
         {/* Slider Section - Infinite Gallery */}
-        <div className="min-h-screen bg-[#f0f0ea] grid place-items-center font-sans mt-[-400px] mb-[-700px]">
+        <div className="bg-[#f0f0ea] grid place-items-center font-sans pt-16">
           <div className="w-[90%] max-w-7xl overflow-hidden relative">
             <div className="w-full overflow-hidden">
               {/* Track - adjusted padding to show 4 images */}
@@ -200,8 +200,8 @@ const BrandTransformation = () => {
 
         {/* Section 3 */}
         {/* Text Section */}
-        <div className="inline-flex flex-col items-center w-full px-[12%] mt-[200px]">
-          <div className="w-full px-4 py-8 md:py-16">
+        <div className="inline-flex flex-col items-center w-full px-[12%]">
+          <div className="w-full px-4 md:py-16">
             <div className="max-w-7xl mx-auto">
               {/* Call to Action Section */}
               <div className="mt-12 text-center">
