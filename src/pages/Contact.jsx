@@ -11,7 +11,7 @@ const Contact = () => {
   }, []);
   return (
     <div className="min-h-screen flex flex-col bg-[#f0f0ea]">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="max-w-6xl mx-auto pt-[140px]">
         <section className="text-center mb-16 mt-16">
           <h1 className="text-5xl font-vietnam italic mb-20">Get In Touch</h1>

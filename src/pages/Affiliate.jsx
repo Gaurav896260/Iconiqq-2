@@ -13,7 +13,7 @@ const Affiliate = () => {
   }, []);
   return (
     <div className="min-h-screen flex flex-col bg-[#f0f0ea]">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="max-w-6xl mx-auto pt-[140px]">
         {/* <HeroAffiliate className="mt-5" /> */}
         <section className="text-center mb-16 mt-16">
